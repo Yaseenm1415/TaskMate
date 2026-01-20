@@ -13,11 +13,13 @@ body {
   justify-content: center;
   align-items: center;
   background: linear-gradient(120deg, #3d3c3c, #c6c7c9, #f2eced);
+  padding: 10px; 
 }
 
 /* App card */
 .app {
-  width: 500px;
+  width: 420px;
+  max-width: 100%;
   background-color: #212122;
   padding: 22px;
   border-radius: 14px;
@@ -30,6 +32,7 @@ header {
   flex-direction: column;
   align-items: center;
   margin-bottom: 18px;
+  text-align: center;
 }
 
 .title {
@@ -45,7 +48,7 @@ header {
 }
 
 /* Form */
-.task-form{
+.task-form {
   margin-bottom: 20px;
 }
 
@@ -53,15 +56,15 @@ header {
   display: flex;
   gap: 8px;
   margin-bottom: 8px;
-  
 }
 
-.task-input{
+.task-input {
   flex: 2;
   padding: 10px 12px;
   border-radius: 20px;
   border: 1px solid #e5e7eb;
   outline: none;
+  min-width: 0;
 }
 
 .task-input:focus {
@@ -92,7 +95,7 @@ button:hover {
 
 /* Task list */
 .task-list {
-  list-style:none;
+  list-style: none;
   margin-top: 10px;
 }
 
@@ -104,11 +107,16 @@ button:hover {
   align-items: center;
 }
 
+/* Ensure long task names wrap without breaking layout */
 .task-list span {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   color: #fefefe;
+  word-break: break-word;   
+  overflow-wrap: anywhere;  
+  max-width: calc(100% - 90px); 
 }
+
 
 .task-list small {
   margin-left: 6px;
@@ -133,14 +141,14 @@ button:hover {
 }
 
 .complete-btn {
-  color:#0bea6ce3;
+  color: #0bea6ce3;
 }
 
 .complete-btn:hover {
   color: #14c661e1;
 }
 
-.delete-btn{
+.delete-btn {
   color: #fb1f1f;
 }
 
@@ -188,5 +196,50 @@ button:hover {
 }
 
 .clear-btn:hover {
-  background-color:  #9c1d1d;
+  background-color: #9c1d1d;
+}
+
+/* ======= MOBILE RESPONSIVE ======= */
+@media (max-width: 480px) {
+  .app {
+    width: 100%; 
+    padding: 14px;
+  }
+
+  .title {
+    font-size: 24px;
+  
+  }
+
+  .task-input {
+    padding: 8px 10px;
+    font-size: 14px;
+  }
+
+  .select {
+    padding: 5px 8px;
+    font-size: 14px;
+  }
+
+  .add-btn {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
+
+  .task-list span {
+    font-size: 13px;
+  }
+
+  .task-list small {
+    font-size: 11px;
+  }
+
+  .progress-tracker p {
+    font-size: 12px;
+  }
+
+  .clear-btn {
+    height: 36px;
+    font-size: 12px;
+  }
 }
